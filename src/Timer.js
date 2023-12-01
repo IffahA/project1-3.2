@@ -1,14 +1,45 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 
-const Timer = ({ gameStarted, gameEnded, timer, score }) => {
-  const [timeLeft, setTimeLeft] = useState(timer);
+const Timer = ({ gameStarted, gameEnded, level }) => {
+  const [timeLeft, setTimeLeft] = useState(0);
 
   const timerInt = useRef(null);
 
   useEffect(() => {
-    if (gameStarted && !gameEnded) {
-      setTimeLeft(35);
+    //countdown for level 1
+    if (gameStarted && !gameEnded && level === "Level 1") {
+      setTimeLeft(5);
+      timerInt.current = setInterval(() => {
+        setTimeLeft((prevTimeLeft) => {
+          if (prevTimeLeft > 0) {
+            return prevTimeLeft - 1;
+          } else {
+            clearInterval(timerInt.current);
+            return 0;
+          }
+        });
+      }, 1000);
+    }
+
+    //countdown for level 2
+    if (gameStarted && !gameEnded && level === "Level 2") {
+      setTimeLeft(10);
+      timerInt.current = setInterval(() => {
+        setTimeLeft((prevTimeLeft) => {
+          if (prevTimeLeft > 0) {
+            return prevTimeLeft - 1;
+          } else {
+            clearInterval(timerInt.current);
+            return 0;
+          }
+        });
+      }, 1000);
+    }
+
+    //countdown for level 3
+    if (gameStarted && !gameEnded && level === "Level 3") {
+      setTimeLeft(20);
       timerInt.current = setInterval(() => {
         setTimeLeft((prevTimeLeft) => {
           if (prevTimeLeft > 0) {
@@ -24,7 +55,7 @@ const Timer = ({ gameStarted, gameEnded, timer, score }) => {
     return () => {
       clearInterval(timerInt.current);
     };
-  }, [gameStarted, gameEnded]);
+  }, [gameStarted, gameEnded, level]);
 
   // useEffect(() => {
   //   const timerInterval = setInterval(
@@ -40,8 +71,9 @@ const Timer = ({ gameStarted, gameEnded, timer, score }) => {
 
   return (
     <div>
-      {gameStarted && <p> {timeLeft} secs left </p>}
-      {gameStarted && <p> {score} HITS </p>}
+      {level === "Level 1" && <p> {timeLeft} secs left </p>}
+      {level === "Level 2" && <p> {timeLeft} secs left </p>}
+      {level === "Level 3" && <p> {timeLeft} secs left </p>}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const CoverScreen = ({ score, onStartGame, time, username }) => {
+const CoverScreen = ({ score, username }) => {
   return (
     <div>
       <h1>{score > -1 ? "Time's up" : "Pop-a-balloon! "}</h1>
