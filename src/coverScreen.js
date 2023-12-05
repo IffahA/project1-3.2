@@ -1,10 +1,10 @@
 import React from "react";
 
 const CoverScreen = ({ score, username }) => {
+  console.log(`score ${score}`);
   return (
     <div>
-      <h1>{score > -1 ? "Time's up" : "Pop-a-balloon! "}</h1>
-      <p>{username}</p>
+      <h1>{score > -1 ? "Time's up" : "Balloon Burst "}</h1>
     </div>
   );
 };

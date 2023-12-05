@@ -19,7 +19,7 @@ const Timer = ({ gameStarted, gameEnded, level }) => {
             return 0;
           }
         });
-      }, 1000);
+      }, 5000);
     }
 
     //countdown for level 2
@@ -70,7 +70,7 @@ const Timer = ({ gameStarted, gameEnded, level }) => {
   // }, [timeLeft]);
 
   return (
-    <div>
+    <div className="Timer">
       {level === "Level 1" && <p> {timeLeft} secs left </p>}
       {level === "Level 2" && <p> {timeLeft} secs left </p>}
       {level === "Level 3" && <p> {timeLeft} secs left </p>}

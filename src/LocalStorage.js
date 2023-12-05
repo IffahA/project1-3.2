@@ -1,49 +1,34 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 // useeffect for local storage when game ends
-export default function LocalStorageScores({ username, score, gameEnded }) {
-  const scoreBoard = {
-    username: { username },
-    score: { score },
-  };
+export default function LocalStorageScores() {
+  const currentScores = JSON.parse(window.localStorage.getItem("scores"));
 
-  useEffect(() => {
-    console.log(`running LocalStorage`);
-  }, []);
-  // if (username !== "" || score !== -1)
+  // Sort the scores based on the score value in descending order
+  const sortedScores = currentScores.sort((a, b) => b.score - a.score);
 
-  const addScoreBoard = (scoreBoard) => {
-    console.log("Running scoreboard");
+  // Limit the scores to the desired length (e.g., 3)
+  const limitedScores = sortedScores.slice(0, 3);
 
-    //if username is not empty / score
-    if (gameEnded === true) {
-      const board = window.localStorage.getItem("scores");
-      console.log(`scoreboard: ${scoreBoard}`);
-      console.log(`board: ${board}`);
-
-      if (board === null) {
-        window.localStorage.setItem("scores", JSON.stringify([scoreBoard]));
-        return (
-          <ul>
-            {username} {score}
-          </ul>
-        );
-      } else {
-        const getCurrentScores = window.localStorage.getItem("scores");
-        const currentScores = JSON.parse(getCurrentScores);
-        console.log(currentScores);
-        currentScores.push(scoreBoard);
-        window.localStorage.setItem("scores", JSON.stringify(currentScores));
-        //currentScores.username /score
-        return (
-          <ul>
-            {currentScores.username} {currentScores.scores}
-          </ul>
-        );
-      }
-    }
-  };
-  // let data = addScoreBoard(scoreBoard);
-
-  return addScoreBoard(scoreBoard);
+  return (
+    <div className="ScoreTable">
+      <h3 className="ScoreTitle">Highest Scores</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {limitedScores.map((score, index) => (
+            <tr key={index}>
+              <td>{score.username}</td>
+              <td>{score.score}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }

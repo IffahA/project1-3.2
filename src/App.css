@@ -1,7 +1,138 @@
-. {
-  margin: 15%;
+/*RESET */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
+/* FONTS  */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+@font-face {
+  font-family: "Bubble";
+  src: local(Bubble), url(./Bubble.ttf) format("truetype");
+}
 .App {
   text-align: center;
   margin: 10%;
@@ -39,5 +170,164 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+html {
+  background-color: #9adcff;
+}
+h1 {
+  font-family: "Bubble";
+  font-size: 4rem !important;
+}
+
+.coverScreen {
+  text-align: center;
+  font-size: 1.5em;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.level {
+  text-align: left;
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+
+  translate: -50% -50%;
+}
+
+h3 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+}
+input {
+  margin-bottom: 0.5rem !important;
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  border-radius: 0.5rem !important;
+  padding: 1rem 1.75rem;
+  width: 100%;
+}
+
+/* button {
+  margin-top: 0.5rem;
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+} */
+
+/* CSS */
+button {
+  margin-top: 0.5rem;
+  font-family: "Lato", sans-serif !important;
+  font-size: 1.5rem;
+  background-image: linear-gradient(-180deg, #37aee2 0%, #1e96c8 100%);
+  border-radius: 0.5rem !important;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button {
+  background-image: linear-gradient(-180deg, #1d95c9 0%, #17759c 100%);
+}
+
+.ScoreTable {
+  background-color: #9adcff;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  translate: -50% -50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: "Lato", sans-serif !important;
+  justify-content: center;
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+.ScoreTable tbody {
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+}
+
+.ScoreTable h3 {
+  font-family: "Bubble";
+  font-weight: bold;
+  padding: 0.5rem 0.5rem;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.ScoreTable th {
+  width: 50%;
+  font-size: 1rem;
+}
+
+table {
+  padding: 1rem 1rem 1rem 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.ScoreTable tr {
+  border-bottom: 1px solid #3a96c7;
+}
+
+.Interval h2 {
+  font-family: "Bubble";
+  font-size: 3rem;
+}
+
+.Interval h3 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+}
+
+.Timer {
+  background-color: #9adcff;
+  display: flex;
+  margin: 0% 5% 5% 5%;
+}
+
+.GameLevel {
+  font-family: "Bubble";
+  background-color: #9adcff;
+  display: flex;
+  margin: 5% 5% 0% 5%;
+  align-items: flex-start;
+}
+
+div#root {
+  background-color: #9adcff;
+}
+
+.ScoreTitle h3 {
+  font-family: "Bubble";
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ScoreTable {
+    top: 80%;
   }
 }

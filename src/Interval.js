@@ -1,6 +1,7 @@
 import React from "react";
 
 const Interval = ({ score, level }) => {
+  //keeps track of interval timing to show scores after each level
   let mainText = () => {
     if (level === "Pre-Level 1") {
       return (
@@ -25,7 +26,7 @@ const Interval = ({ score, level }) => {
       );
     }
   };
-  return <div>{mainText()}</div>;
+  return <div className="Interval">{mainText()}</div>;
 };
 
 export default Interval;
